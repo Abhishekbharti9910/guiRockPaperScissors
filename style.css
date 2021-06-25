@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --neonBlue:#04d9ff;
+}
+body{
+    background-color: black;
+    opacity: 0.8;
+}
+h1{
+    /* font-family: 'Pangolin', cursive; */
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+    padding-top: 20px;
+    color: var(--neonBlue);
+    font-size: 60px;
+   
+}
+.txtanimt{
+    text-transform: capitalize;
+    animation: letterspacing 10s infinite alternate cubic-bezier(.2, 0, 0, 1);
+    animation-iteration-count: 0.5;
+    filter: blur(0);
+}
+.storyLine{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+ h3{
+    color: var(--neonBlue);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    font-size: 40px;
+}
+h3:before{
+    content: '';
+    position: absolute;
+    left: 120%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(90deg,transparent 0%,#000 5%, #000 100%);
+    animation: animate 10s linear forwards;
+}
+
+@keyframes animate {
+    0%{
+        left: -20%;
+    }
+    50%{
+        left: 120%;
+    }
+    100%{
+        left: -20%;
+    }
+}
+.disappear{
+    display: none;
+}
+@keyframes letterspacing {
+    0% {
+      letter-spacing: -5rem;
+      filter: blur(0.1rem);
+    }
+    
+    50% {
+      filter: blur(0.4px);
+    }
+    
+    100% {
+      letter-spacing: 1rem;
+      filter: blur(0);
+    }
+  } 
+.gamePlay{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    transition: transform 0.2s;
+    transition-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+.playElement img{
+    width: 240px;
+    height: 232px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.playElement img:hover{
+    transform: scale(1.1);
+    box-shadow: #ff4532 0px 13px 27px -5px, rgba(235, 69, 69, 0.3) 0px 8px 16px -8px;
+}
+h2{
+    color: blanchedalmond;
+    text-align: center;
+    margin: 14px 0 14px 0;
+    font-size: 29px;
+}
+.scoreContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+    bottom: -30px;
+}
+.score{
+    background-color: blanchedalmond;
+    line-height: 50px;
+    height: 50px;
+    width: 90px;
+    text-align: center;
+    font-family: lacquer, arial, sans-serif;
+    font-size: 50px;
+    border-radius: 8px;
+}
+.player img{
+    width: 80px;
+    height: 80px;
+}
+
+@media only screen and (max-width: 600px) {
+    h3{
+        font-size: 1.5em;
+    }
+    h1{
+        font-size: 3em;
+    }
+} 
