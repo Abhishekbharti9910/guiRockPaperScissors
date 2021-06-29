@@ -16,7 +16,7 @@ h1{
     text-align: center;
     margin: 20px 0px 20px 0px;
     padding-top: 20px;
-    color: var(--neonBlue);
+    color: white;
     font-size: 60px;
    
 }
@@ -121,6 +121,12 @@ h2{
 .player img{
     width: 80px;
     height: 80px;
+}
+button{
+    align-items: center;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px) {

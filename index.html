@@ -29,17 +29,17 @@
             <h3 class="desp3 disappear">So you come up with idea!</h3>
             <h3 class="desp4 disappear">To play rock paper scissors game</h3>
             <h3 class="desp5 disappear">If you win you not have to buy this time</h3> 
-            <h2 class="notDisp disappear">Lets dig it</h2>
+            <h2 class="notDisp disappear"><button >start</button></h2>
         </div>
     <div class="afterStory disappear">      
         <div class="gamePlay">
-            <div class="rock playElement">
+            <div class="playElement" id="rock" data-key="rock">
                 <img src="./assets/img/cleanRock.png" alt="rock">
             </div>
-            <div class="paper playElement">
+            <div class="playElement" id="paper" data-key="paper">
                 <img src="./assets/img/paper.png" alt="paper">
             </div>
-            <div class="scissors playElement">
+            <div class="playElement" id="scissors" data-key="scissors">
                 <img src="./assets/img/scissors.png" alt="scissors">
             </div>
         </div>
@@ -52,10 +52,14 @@
             <span class="player"><img src="./assets/img/girl.svg"></span>
         </div>
         </div>
-    </div>      
+    </div>   
+    <div class="audio">
+        <audio src="./assets/click.mp3"></audio>
+    </div>   
     </main>
     <!-- script -->
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
+    
     <!-- end -->
     </body>
 </html>
