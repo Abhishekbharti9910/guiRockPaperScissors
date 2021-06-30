@@ -7,6 +7,7 @@
     <title>Rock Paper Scissors</title>
     <!-- custom style sheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="popUp.css">
     <!--  -->
     <!-- font-style -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -45,10 +46,14 @@
         </div>
 
         <div class="scoreContainer">
-        <div class="you score">0
+        <div class="you score"><div class="playSco">0</div>
             <span class="player"><img src="./assets/img/boy.svg"></span>
         </div>
-        <div class="gf score">0
+        <div class="score tie">
+            <div class="noTie">0</div>
+            <span>Tie</span>
+        </div>
+        <div class="gf score"><div class="gfSco">0</div>
             <span class="player"><img src="./assets/img/girl.svg"></span>
         </div>
         </div>
@@ -57,6 +62,11 @@
         <audio src="./assets/click.mp3"></audio>
     </div>   
     </main>
+    <!-- pop up -->
+    <div class="popup">
+    </div> 
+    </div>
+    <!-- /pop up -->
     <!-- script -->
     <script type="module" src="app.js"></script>
     

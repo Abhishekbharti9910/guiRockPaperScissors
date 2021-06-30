@@ -19,10 +19,11 @@ function story() {
 }
 setInterval(story, 6000);
 setTimeout(()=>{
-    afterStry.classList.remove("disappear");
     h2.classList.remove("disappear");
 },6000);//waiting to end of story mode to play
-
+h2.addEventListener("click",()=>{
+    afterStry.classList.remove("disappear");
+})
 
 let rock = document.getElementById("rock");
 let paper = document.getElementById("paper");
@@ -60,57 +61,78 @@ scissors.addEventListener("click",()=>{
 // function for computer selection 
 const selections = document.querySelectorAll('[data-key]');
 console.log(selections);
+let count = 0;
+let playerScore = 1;//score counter for player
+let compScore = 1;//score counter for computer
+let noTie = 1;//score counter tie
+let you = document.querySelector(".playSco");
+let gf = document.querySelector(".gfSco");
+let tie = document.querySelector(".noTie");
 selections.forEach(item =>{
     item.addEventListener("click", e => {
         const selected =  item.dataset.key;
-        makeSelection(selected);
+        let k = round(selected)
+        console.log(k);
+        if (k===1) {
+            you.innerHTML=playerScore; 
+            playerScore++;
+        }
+        else if (k===-1) {
+            gf.innerHTML=compScore; 
+            compScore++;
+        }
+        else if (k===0) {
+            tie.innerHTML=noTie; 
+            noTie++;
+        }
+
     })
+    // if (count==5) {
+
+    // }
 })
-function makeSelection(a) {
-    console.log(a);
+function round(you) {
+    if (count>4) {
+        return;
+    }
+    else{
+        count++;
+        return game(you)
+    }
 }
 
 
-
-
-
-
-const gamePlay = ()=>{
-
-   
-
-
-function game(gf, you) {
-    let human = you();
-    let comp = gf();
-    if (comp == "rock") {
-        if (human == /rock/i) {
+function game(human) {
+    let choice = ["rock","paper", "scissors"];
+    let comp = choice[Math.floor(Math.random()*3)];
+    if (human == "rock") {
+        if (comp == "rock") {
             return 0;
         }
-        else if (human == /paper/i) {
-            return 1;
+        else if (comp == "paper") {
+            return -1;
         }
         else{
-            return -1;
+            return 1;
         }
     }
-    if (comp == "paper") {
-        if (human == /rock/i) {
+    else if (human == "paper") {
+        if (comp == "rock") {
             return -1;
         }
-        else if (human == /paper/i) {
+        else if (comp == "paper") {
             return 0;
         }
         else{
             return 1;
         }
     }
-    if (comp == "scissors") {
-        if (human == /rock/i) {
-            return 1;
-        }
-        else if (human == /paper/i) {
+    else if (human == "scissors") {
+        if (comp == "rock") {
             return -1;
+        }
+        else if (comp == "paper") {
+            return 1;
         }
         else{
             return 0;
@@ -118,4 +140,9 @@ function game(gf, you) {
     }
 }
 
-}
+// popUp 
+// When the user clicks on <div>, open the popup
+// function popW() {
+//   var popup = document.querySelector(".popup");
+//   popup.classList.add("show");
+// }
