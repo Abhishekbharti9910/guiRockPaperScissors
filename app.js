@@ -20,9 +20,9 @@ function story() {
 setInterval(story, 6000);
 setTimeout(()=>{
     h2.classList.remove("disappear");
-},6000);//waiting to end of story mode to play
+},36000);//waiting to end of story mode to play
 h2.addEventListener("click",()=>{
-    afterStry.classList.remove("disappear");
+    afterStry.classList.toggle("disappear");
 })
 
 let rock = document.getElementById("rock");
@@ -60,18 +60,18 @@ scissors.addEventListener("click",()=>{
 
 // function for computer selection 
 const selections = document.querySelectorAll('[data-key]');
-console.log(selections);
-let count = 0;
-let playerScore = 1;//score counter for player
-let compScore = 1;//score counter for computer
-let noTie = 1;//score counter tie
-let you = document.querySelector(".playSco");
-let gf = document.querySelector(".gfSco");
-let tie = document.querySelector(".noTie");
+// console.log(selections);
+var count = 0;
+var playerScore = 1;//score counter for player
+var compScore = 1;//score counter for computer
+var noTie = 1;//score counter tie
+var you = document.querySelector(".playSco");
+var gf = document.querySelector(".gfSco");
+var tie = document.querySelector(".noTie");
 selections.forEach(item =>{
     item.addEventListener("click", e => {
         const selected =  item.dataset.key;
-        let k = round(selected)
+        let k = round(selected, playerScore, compScore);
         console.log(k);
         if (k===1) {
             you.innerHTML=playerScore; 
@@ -91,9 +91,9 @@ selections.forEach(item =>{
 
     // }
 })
-function round(you) {
+function round(you,yS,gfS) {
     if (count>4) {
-        return;
+        popup(yS,gfS);
     }
     else{
         count++;
@@ -141,8 +141,16 @@ function game(human) {
 }
 
 // popUp 
-// When the user clicks on <div>, open the popup
-// function popW() {
-//   var popup = document.querySelector(".popup");
-//   popup.classList.add("show");
-// }
+function popup(y,gf) {
+    if(y>gf){
+        document.getElementById("popup-1").classList.add("active");
+    }
+    else if (y===gf) {
+        document.getElementById("popup-3").classList.add("active");   
+    }
+    else{
+    document.getElementById("popup-2").classList.add("active");   
+    }
+}
+
+// console.log(count);

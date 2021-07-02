@@ -50,7 +50,7 @@
             <span class="player"><img src="./assets/img/boy.svg"></span>
         </div>
         <div class="score tie">
-            <div class="noTie">0</div>
+            <div class="noTie">Tie</div>
             <span>Tie</span>
         </div>
         <div class="gf score"><div class="gfSco">0</div>
@@ -63,10 +63,38 @@
     </div>   
     </main>
     <!-- pop up -->
-    <div class="popup">
-    </div> 
+    <!-- popup-1 win -->
+    <div class="popup" id="popup-1">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn">retry</div>
+          <h1 class="h1Color">Congrats!</h1>
+          <p>You saved your love for one more day.</p>
+          <img src="./assets/img/heart.png" alt="heart" width="80px" height="80px">
+        </div>
     </div>
+    <!-- popup-2 loose -->
+    <div class="popup" id="popup-2">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn">X</div>
+            <h1 class="h1Color">Loose</h1>
+            <p>You saved your love, But you lost your kidney.</p>
+            <img src="./assets/img/kidney.png" alt="kidney" width="80px" height="80px">
+        </div>
+    </div>
+    <!-- popup-3 tie -->
+    <div class="popup" id="popup-3">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn">X</div>
+            <h1 class="h1Color">tie</h1>
+            <p>Tie between you, plz play one more time to get on conclusion.</p>
+            <img src="./assets/img/heart.png" alt="heart" width="80px" height="80px">
+        </div>
+      </div>
     <!-- /pop up -->
+
     <!-- script -->
     <script type="module" src="app.js"></script>
     
