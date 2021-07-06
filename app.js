@@ -20,7 +20,7 @@ function story() {
 setInterval(story, 6000);
 setTimeout(()=>{
     h2.classList.remove("disappear");
-},36000);//waiting to end of story mode to play
+},6000);//waiting to end of story mode to play
 h2.addEventListener("click",()=>{
     afterStry.classList.toggle("disappear");
 })
@@ -68,6 +68,8 @@ var noTie = 1;//score counter tie
 var you = document.querySelector(".playSco");
 var gf = document.querySelector(".gfSco");
 var tie = document.querySelector(".noTie");
+// making exit or retry works
+let closeBtn = document.getElementsByClassName("close-btn");
 selections.forEach(item =>{
     item.addEventListener("click", e => {
         const selected =  item.dataset.key;
@@ -142,15 +144,38 @@ function game(human) {
 
 // popUp 
 function popup(y,gf) {
+    let k;
     if(y>gf){
-        document.getElementById("popup-1").classList.add("active");
+        k = document.getElementById("popup-1")
+        k.classList.add("active");
     }
     else if (y===gf) {
-        document.getElementById("popup-3").classList.add("active");   
+        k=document.getElementById("popup-3")
+        k.classList.add("active");   
     }
     else{
-    document.getElementById("popup-2").classList.add("active");   
+        k = document.getElementById("popup-2")
+        k.classList.add("active");   
     }
+    // closeBtn.addEventListener("click", ()=>{
+    //     document.getElementById("popup-2").classList.remove("active");  
+    // })
+    Array.from(closeBtn).forEach(element => {
+        element.addEventListener("click", ()=>{
+            k.classList.remove("active");
+            initalising();
+        })
+});
+}
+function initalising() {
+    count = 0;
+    playerScore = 1;
+    compScore = 1;
+    noTie = 1;
+    you.innerHTML=0;
+    gf.innerHTML=0; 
+    tie.innerHTML=0; 
 }
 
-// console.log(count);
+
+
