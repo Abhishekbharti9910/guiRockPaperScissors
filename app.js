@@ -20,7 +20,7 @@ function story() {
 setInterval(story, 6000);
 setTimeout(()=>{
     h2.classList.remove("disappear");
-},6000);//waiting to end of story mode to play
+},36000);//waiting to end of story mode to play
 h2.addEventListener("click",()=>{
     afterStry.classList.toggle("disappear");
 })
